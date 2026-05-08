@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Arcade Market Frontpage</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <aside class="sidebar" aria-label="Main navigation">
+        <a class="brand" href="#" aria-label="Arcade Market home">
+          <span class="brandMark" aria-hidden="true">A</span>
+          <span>Arcade</span>
+        </a>
+
+        <nav class="navList" aria-label="Marketplace sections">
+          <a class="navItem active" href="#products">
+            <span class="navIcon" aria-hidden="true">#</span>
+            Discover
+          </a>
+          <a class="navItem" href="#seller-hub">
+            <span class="navIcon" aria-hidden="true">//</span>
+            Filters
+          </a>
+          <a class="navItem" href="#products">
+            <span class="navIcon" aria-hidden="true">[]</span>
+            Library
+          </a>
+          <a class="navItem" href="#products">
+            <span class="navIcon" aria-hidden="true">$</span>
+            Deals
+          </a>
+          <a class="navItem" href="#security">
+            <span class="navIcon" aria-hidden="true">*</span>
+            Trust
+          </a>
+        </nav>
+      </aside>
+
+      <section class="content">
+        <header class="topbar">
+          <form class="searchBox" id="search-form">
+            <span aria-hidden="true">/</span>
+            <input
+              id="search-input"
+              name="search"
+              type="search"
+              aria-label="Search marketplace"
+              placeholder="Search assets, sellers, templates..."
+              autocomplete="off"
+            />
+          </form>
+
+          <div class="topbarActions">
+            <button class="iconButton" type="button" aria-label="Filter results" title="Filter results">
+              F
+            </button>
+            <button class="iconButton" type="button" aria-label="Notifications" title="Notifications">
+              N
+            </button>
+            <button class="primaryButton" type="button">
+              <span aria-hidden="true">+</span>
+              Sell asset
+            </button>
+          </div>
+        </header>
+
+        <section class="heroBand" aria-label="Marketplace summary">
+          <div class="heroCopy">
+            <p class="eyebrow">
+              <span aria-hidden="true">*</span>
+              Multi-seller digital marketplace
+            </p>
+            <h1>Browse, sell, and deliver protected digital assets.</h1>
+            <p>
+              A marketplace interface for templates, code, audio, video, fonts, courses,
+              and downloadable products with guest checkout and automatic seller payouts.
+            </p>
+            <div class="heroActions">
+              <a class="primaryButton large" href="#products">
+                <span aria-hidden="true">/</span>
+                Explore assets
+              </a>
+              <a class="secondaryButton large" href="#seller-hub">
+                <span aria-hidden="true">//</span>
+                Open filters
+              </a>
+            </div>
+          </div>
+
+          <aside class="heroPreview" aria-label="Checkout preview">
+            <div class="checkoutHeader">
+              <span>Secure checkout</span>
+              <strong aria-hidden="true">OK</strong>
+            </div>
+            <div class="assetStack">
+              <span class="assetTile tileOne">PSD</span>
+              <span class="assetTile tileTwo">MP4</span>
+              <span class="assetTile tileThree">ZIP</span>
+            </div>
+            <div class="checkoutRows">
+              <span>Creator Launch Kit</span>
+              <strong>$29.00</strong>
+              <span>Platform fee</span>
+              <strong>$2.90</strong>
+              <span>Seller payout</span>
+              <strong>$26.10</strong>
+            </div>
+            <button class="checkoutButton" type="button">
+              <span aria-hidden="true">CC</span>
+              Pay with card
+            </button>
+          </aside>
+        </section>
+
+        <div class="categoryRow" aria-label="Asset categories">
+          <button class="category active" type="button" data-category="All">All</button>
+          <button class="category" type="button" data-category="Design">Design</button>
+          <button class="category" type="button" data-category="Code">Code</button>
+          <button class="category" type="button" data-category="Audio">Audio</button>
+          <button class="category" type="button" data-category="Video">Video</button>
+          <button class="category" type="button" data-category="Course">Courses</button>
+          <button class="iconButton" type="button" aria-label="More category filters" title="More filters">
+            //
+          </button>
+        </div>
+
+        <section class="mainGrid">
+          <div class="productArea" id="products">
+            <div class="sectionHeader">
+              <div>
+                <p class="sectionKicker">Trending now</p>
+                <h2>Featured assets</h2>
+              </div>
+              <span class="textButton" id="result-count">0 products</span>
+            </div>
+
+            <div class="productGrid" id="product-grid" aria-live="polite"></div>
+          </div>
+
+          <aside class="sellerHub filterPanel" id="seller-hub" aria-label="Product filtering panel">
+            <div class="sectionHeader tight">
+              <div>
+                <p class="sectionKicker">Filters</p>
+                <h2>Refine assets</h2>
+              </div>
+              <button class="statusPill resetButton" id="reset-filters" type="button">Reset</button>
+            </div>
+
+            <div class="filterSummary">
+              <span aria-hidden="true">//</span>
+              <div>
+                <strong>Marketplace filters</strong>
+                <p>Use these controls to narrow the assets shown in the product grid.</p>
+              </div>
+            </div>
+
+            <div class="filterGroup">
+              <div class="filterGroupHeader">
+                <label for="price-filter">Maximum price</label>
+                <strong id="price-value">$60</strong>
+              </div>
+              <input id="price-filter" class="rangeInput" type="range" min="10" max="60" value="60" step="1" />
+            </div>
+
+            <div class="filterGroup">
+              <label for="rating-filter">Minimum rating</label>
+              <select id="rating-filter" class="selectInput">
+                <option value="0">Any rating</option>
+                <option value="4.7">4.7 and up</option>
+                <option value="4.8">4.8 and up</option>
+                <option value="4.9">4.9 and up</option>
+              </select>
+            </div>
+
+            <div class="filterGroup collapsibleGroup">
+              <button
+                class="collapseToggle"
+                type="button"
+                aria-expanded="true"
+                aria-controls="product-type-filters"
+                data-collapse-toggle
+              >
+                <span>Product type</span>
+                <span aria-hidden="true">-</span>
+              </button>
+              <div class="filterChecklist" id="product-type-filters">
+                <label>
+                  <input type="checkbox" data-panel-category="Design" checked />
+                  <span>Design</span>
+                </label>
+                <label>
+                  <input type="checkbox" data-panel-category="Code" checked />
+                  <span>Code</span>
+                </label>
+                <label>
+                  <input type="checkbox" data-panel-category="Audio" checked />
+                  <span>Audio</span>
+                </label>
+                <label>
+                  <input type="checkbox" data-panel-category="Video" checked />
+                  <span>Video</span>
+                </label>
+                <label>
+                  <input type="checkbox" data-panel-category="Course" checked />
+                  <span>Course</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="filterGroup collapsibleGroup" id="security">
+              <button
+                class="collapseToggle"
+                type="button"
+                aria-expanded="true"
+                aria-controls="delivery-filters"
+                data-collapse-toggle
+              >
+                <span>Delivery</span>
+                <span aria-hidden="true">-</span>
+              </button>
+              <div class="collapsibleContent" id="delivery-filters">
+                <label class="toggleRow">
+                  <input id="instant-download" type="checkbox" />
+                  <span>Instant download only</span>
+                </label>
+                <label class="toggleRow">
+                  <input id="protected-delivery" type="checkbox" />
+                  <span>Protected delivery only</span>
+                </label>
+              </div>
+            </div>
+          </aside>
+        </section>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
